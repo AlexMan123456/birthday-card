@@ -82,7 +82,7 @@ function QuizPage(){
     }
 
     return (
-        <section>
+        <section style={{justifyItems: "center"}}>
             <header>
                 <h1>Quiz</h1>
                 <p>Here's a fun quiz for you to try out! I decided to make this one about Literature, since I know how much you like reading and all.</p>
@@ -123,10 +123,11 @@ function QuizPage(){
                             <Typography variant="subtitle1">Well done! You've set a new high score!</Typography>
                             <Typography variant="subtitle2">New high score: {score}</Typography>
                         </> : null}
-                        <Button onClick={startNewGame}>Start new game</Button>
+                        <Button variant="contained" onClick={startNewGame}>Start new game</Button>
                     </>
                 ) : null}
             </main>
+            <br/>
         </section>
     )
 }
