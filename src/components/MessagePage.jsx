@@ -1,4 +1,21 @@
+import { useEffect, useState } from "react"
+import wait from "../utils/wait";
+import { CircularProgress } from "@mui/material";
+
 function MessagePage(){
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setIsLoading(true);
+        wait(3).then(() => {
+            setIsLoading(false);
+        })
+    }, [])
+    
+    if(isLoading){
+        return <CircularProgress sx={{justifySelf: "center", display: "block", marginLeft: "auto", marginRight: "auto"}}/>
+    }
+
     return (<section style={{justifyItems: "center", textAlign: "center"}}>
         <h1>Message</h1>
         <p>To Ellie,</p>

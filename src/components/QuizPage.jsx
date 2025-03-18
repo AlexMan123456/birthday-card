@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import shuffleArray from "../utils/shuffle-array";
 import { Box, Button, ButtonGroup, CircularProgress, List, ListItem, ListItemButton, ListItemText, Typography } from "@mui/material";
 import { Done } from "@mui/icons-material";
+import wait from "../utils/wait";
 
 function QuizPage(){
     const [question, setQuestion] = useState("");
@@ -42,7 +43,9 @@ function QuizPage(){
         if(!localStorage.getItem("highScore")){
             localStorage.setItem("highScore", 0);
         }
-        getQuestion();
+        wait(3).then(() => {
+            getQuestion();
+        })
     }, [])
 
     function startNewGame(){
@@ -74,7 +77,7 @@ function QuizPage(){
     }
 
     if(isLoading){
-        return <CircularProgress/>
+        return <CircularProgress sx={{justifySelf: "center", display: "block", marginLeft: "auto", marginRight: "auto"}}/>
     }
 
     if(error){
@@ -85,7 +88,7 @@ function QuizPage(){
         <section style={{justifyItems: "center"}}>
             <header>
                 <h1>Quiz</h1>
-                <p>Here's a fun quiz for you to try out! I decided to make this one about Literature, since I know how much you like reading and all.</p>
+                <p>Here's a fun quiz for you! I decided to make this one about Literature, since I know how much you like reading and all.</p>
             </header>
             <main>
                 <Typography>{question}</Typography>
