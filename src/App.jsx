@@ -7,6 +7,7 @@ import audio from "./audio/willow.mp3"
 import 'react-h5-audio-player/lib/styles.css'
 import H5AudioPlayer from "react-h5-audio-player"
 import { Box } from "@mui/material"
+import EndPage from "./components/EndPage"
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
       <Route path="/card/1" element={<FrontCardPage/>}/>
       <Route path="/card/2" element={<QuizPage/>}/>
       <Route path="/card/3" element={<MessagePage/>}/>
+      <Route path="/card/4" element={<EndPage/>}/>
     </Routes>
     <Box sx={{justifyItems: "center"}}>
       <H5AudioPlayer style={{width: "30vw"}} src={audio} showJumpControls={false} showSkipControls={false} autoPlay={true}/>
