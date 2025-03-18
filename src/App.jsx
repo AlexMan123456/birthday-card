@@ -16,7 +16,7 @@ function App() {
       <Route path="/card/2" element={<QuizPage/>}/>
       <Route path="/card/3" element={<MessagePage/>}/>
     </Routes>
-    <H5AudioPlayer style={{width: "30vw"}} src={audio} showJumpControls={false} showSkipControls={false}/>
+    <H5AudioPlayer style={{width: "30vw"}} src={audio} showJumpControls={false} showSkipControls={false} autoPlay={true}/>
     <Navigation/>
     </>)
 }
