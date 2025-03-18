@@ -6,6 +6,7 @@ import QuizPage from "./components/QuizPage"
 import audio from "./audio/willow.mp3"
 import 'react-h5-audio-player/lib/styles.css'
 import H5AudioPlayer from "react-h5-audio-player"
+import { Box } from "@mui/material"
 
 function App() {
 
@@ -16,8 +17,10 @@ function App() {
       <Route path="/card/2" element={<QuizPage/>}/>
       <Route path="/card/3" element={<MessagePage/>}/>
     </Routes>
-    <H5AudioPlayer style={{width: "30vw"}} src={audio} showJumpControls={false} showSkipControls={false} autoPlay={true}/>
-    <Navigation/>
+    <Box sx={{justifyItems: "center"}}>
+      <H5AudioPlayer style={{width: "30vw"}} src={audio} showJumpControls={false} showSkipControls={false} autoPlay={true}/>
+      <Navigation/>
+    </Box>
     </>)
 }
 
