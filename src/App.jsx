@@ -8,8 +8,18 @@ import 'react-h5-audio-player/lib/styles.css'
 import H5AudioPlayer from "react-h5-audio-player"
 import { Box } from "@mui/material"
 import EndPage from "./components/EndPage"
+import { useEffect, useState } from "react"
 
 function App() {
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 669 && window.innerHeight > 800);
+
+  useEffect(() => {
+    function handleResize(){
+      setIsLargeScreen(window.innerWidth > 669 && window.innerHeight > 800)
+    }
+    window.addEventListener("resize", handleResize)
+    return () => {window.removeEventListener("resize", handleResize)}
+  }, [])
 
   return (<>
     <Routes>
@@ -20,7 +30,7 @@ function App() {
       <Route path="/card/4" element={<EndPage/>}/>
     </Routes>
     <Box sx={{justifyItems: "center"}}>
-      <H5AudioPlayer style={{width: "30vw"}} src={audio} showJumpControls={false} showSkipControls={false} autoPlay={true}/>
+      <H5AudioPlayer style={{width: isLargeScreen ? "30vw" : null}} src={audio} showJumpControls={false} showSkipControls={false} autoPlay={true}/>
       <Navigation/>
     </Box>
     </>)
